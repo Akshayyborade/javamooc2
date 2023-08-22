@@ -14,6 +14,7 @@ public class VehicleRegistry {
         } else {
             this.VehicleRegistry.putIfAbsent(licensePlate, "");
             // System.out.println("Added "+owner+" to the registry.");
+            //grdhdhd
             return true;
         }
 
