@@ -18,21 +18,27 @@ public class LicensePlate {
     public String toString() {
         return country + " " + liNumber;
     }
-    public boolean equals(Object obj){
-        if(obj==this){
-            return true;
-        }
-        if((obj==null)||!(obj instanceof LicensePlate)){
+
+    public boolean equals(Object object){
+        if (object == null || object.getClass() != this.getClass()){
             return false;
         }
-        LicensePlate otherLicense= (LicensePlate) obj;
-        if(this.liNumber.equals(otherLicense.liNumber) && this.country.equals(otherLicense.country) ){
-            return  true ;
+        
+        LicensePlate compared = (LicensePlate) object;
+        if (this.country == compared.country && this.liNumber == compared.liNumber){
+            return true;
         }
         return false;
     }
-    public int hashcode(){
-        return Objects.hash(this);
+    
+    public int hashCode(){
+        int num = 0;
+        for (int i=0; i<this.country.length(); i++){
+            num = num*10 + (int)this.country.charAt(i);
+        }
+        for (int i=0; i<this.liNumber.length(); i++){
+            num = num*10 + (int)this.liNumber.charAt(i);
+        }
+        return num;
     }
-
 }
